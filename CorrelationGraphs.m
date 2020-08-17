@@ -14,7 +14,7 @@ for i = 1:length(nonlinear)
     
     % Plot the graphs
     figure;
-    plot(Stats.(x), boxscores.(i), '*')
+    plot(Stats.(x), boxscores.(i), '.')
     l1 = lsline % Add regression line
     l1.LineWidth = 3
     xlabel(x); ylabel(y) % Add axis labels based on the variables
