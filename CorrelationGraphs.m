@@ -1,10 +1,10 @@
 
 NonlinearVariable = 'FullGameDFA vs ' % Change the variable in the title to reflect what you are plotting
 
-Stats = readtable('AllPlayerStats.xlsx') % Loads the data
-colnames = Stats.Properties.VariableNames % Gets the columns names
-nonlinear = colnames(3:14) % Nonlinear column names
-box = colnames(18:40) % Box score column names
+Stats = readtable('AllPlayerStats.xlsx'); % Loads the data
+colnames = Stats.Properties.VariableNames; % Gets the columns names
+nonlinear = colnames(3:14); % Nonlinear column names
+box = colnames(18:40); % Box score column names
 boxscores = Stats(:,17:40);
 
 for i = 1:length(nonlinear)
