@@ -1,5 +1,7 @@
 
 NonlinearVariable = 'FullGameDFA vs ' % Change the variable in the title to reflect what you are plotting
+filepath = '/Users/joelsommerfeld/Desktop/University of Nebraska/' % Add in file path where the figures will save here
+
 
 Stats = readtable('AllPlayerStats.xlsx'); % Loads the data
 colnames = Stats.Properties.VariableNames; % Gets the columns names
@@ -21,7 +23,7 @@ for i = 1:length(box)
     ax = gca;
     ax.FontSize = 13; % Change the Axis Label font sizes
     
-    %filename = strcat(NonlinearVariable vs {y},'.png');
-    saveas(gcf, [NonlinearVariable, num2str(y)], 'png')
+    
+    saveas(gcf, [filepath, NonlinearVariable, num2str(y)], 'png')
 end
 close all
