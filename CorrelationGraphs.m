@@ -7,7 +7,7 @@ nonlinear = colnames(3:14); % Nonlinear column names
 box = colnames(18:40); % Box score column names
 boxscores = Stats(:,17:40);
 
-for i = 1:length(nonlinear)
+for i = 1:length(box)
     x = nonlinear{1} % Change this number depending on the variable that you want to plot on the x axis
     j = 1:length(box)
     y = box{i}
