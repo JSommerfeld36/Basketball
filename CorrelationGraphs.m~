@@ -14,10 +14,6 @@ for i = 1:length(box)
     %j = 1:length(box)
     y = box{i}
     
-    % R squared values
-    tmp = corrcoef(Stats.(x), boxscores.(i));
-    r2 = tmp^2;
-    
     % Plot the graphs
     figure;
     plot(Stats.(x), boxscores.(i), '.', 'MarkerSize', 12)
@@ -27,11 +23,8 @@ for i = 1:length(box)
     ax = gca;
     ax.FontSize = 13; % Change the Axis Label font sizes
     
-    str=['r^2= ',num2str(r2(1,2))]
-    T = text(min(get(gca, 'xlim')), max(get(gca, 'ylim')), str);
-    set(T, 'fontsize', 14, 'verticalalignment', 'top', 'horizontalalignment', 'left');
-    
-    
+    % R squared values
+    tmp = corrcoef(Stats., y);
     
     saveas(gcf, [filepath, NonlinearVariable, num2str(y)], 'png')
 end
