@@ -16,7 +16,7 @@ for i = 1:length(box)
     
     % R squared values
     tmp = corrcoef(Stats.(x), boxscores.(i));
-    r2 = tmp^2;
+    r2 = tmp^2; % Value that is displayed on graph
     
     % Plot the graphs
     figure;
@@ -27,9 +27,9 @@ for i = 1:length(box)
     ax = gca;
     ax.FontSize = 13; % Change the Axis Label font sizes
     
-    str=['r^2= ',num2str(r2(1,2))]
-    T = text(min(get(gca, 'xlim')), max(get(gca, 'ylim')), str);
-    set(T, 'fontsize', 14, 'verticalalignment', 'top', 'horizontalalignment', 'left');
+    str=['r^2= ',num2str(r2(1,2))] % Converts value to a string
+    T = text(min(get(gca, 'xlim')), max(get(gca, 'ylim')), str); % Finds the limits of the window
+    set(T, 'fontsize', 14, 'verticalalignment', 'top', 'horizontalalignment', 'left'); % Places the R^2 value in the top left corner
     
     
     
