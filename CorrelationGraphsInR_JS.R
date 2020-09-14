@@ -2,7 +2,7 @@
 library(readxl)
 
 NonlinearVariable <- 'FullGameDFA' # Change the variable in the title to reflect what you are plotting
-filepath <- '' # Add in file path where the figures will save here
+filepath <- '/Users/joelsommerfeld/Desktop/University of Nebraska/Lab Tech/' # Add in file path where the figures will save here
 
 
 Stats <- read_xlsx('C:/Users/jsommerfeld/Desktop/AllPlayerStats.xlsx'); # Loads the data. Need to use a local path
@@ -25,14 +25,14 @@ for (i in loop.vector) { # Don't forget to add back in the for loop
    
     
     pvar = data.frame(Stats[x], boxscores[i]) # Put x and y variable into a data frame for easy plotting
-    regline = lm(pvar[,1] ~ pvar[,2], pvar) # Create a regression line to add to the plot
+    regline = lm(pvar[,2] ~ pvar[,1], pvar) # Create a regression line to add to the plot
     plot(pvar, xlab=(x), ylab=(y)) # Create the plot specifying the X and Y axis labels
     abline(regline) # Add in the regression line
     
     
-    str <-paste('r^2= ',(r2[1,1])) # Converts value to a string
-    limits = par("usr")
-    T <- text(0.825, 130, str); # Finds the limits of the window 
+    #str <-paste('r^2= ',(r2[1,1])) # Converts value to a string
+    #limits = par("usr")
+    #T <- text(0.825, 130, str); # Finds the limits of the window 
     #set(T, 'fontsize', 14)#,'verticalalignment', 'top', 'horizontalalignment', 'left'); # Places the R^2 value in the top left corner
   
 
