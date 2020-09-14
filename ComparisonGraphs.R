@@ -68,6 +68,16 @@ reg5 = lm(Stats$FGA ~ Stats$FG, data = Stats)
 plot(Stats$FG, Stats$FGA)
 abline(reg5)
 
+# FG Made vs FG Attempted
+regline6 = lm(NBA_Stats$PTS ~ NBA_Stats$STL, data = NBA_Stats)
+plot(NBA_Stats$STL, NBA_Stats$PTS)
+abline(regline6)
+
+reg6 = lm(Stats$PTS ~ Stats$STL, data = Stats)
+plot(Stats$STL, Stats$PTS)
+abline(reg6)
+
+
 dev.off()
 
 
