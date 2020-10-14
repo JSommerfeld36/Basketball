@@ -2,8 +2,8 @@
 
 
 library(readxl)
-NBA_Stats <- read_excel("~/Desktop/Basketball/NBA_2019-2020_Stats.xlsx")
-Stats <- read_excel("~/Downloads/AllPlayerStats (3).xlsx")
+NBA_Stats <- read_excel("C:/Users/jsommerfeld/Desktop/Basketball/NBA_2019-2020_Stats.xlsx")
+Stats <- read_excel("C:/Users/jsommerfeld/Desktop/AllPlayerStats.xlsx")
 
 filepath <- '/Users/joelsommerfeld/Desktop/University of Nebraska/Lab Tech/' # Add in file path where the figures will save here
 name = 'NBA Stats vs Our Stats'
