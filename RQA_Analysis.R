@@ -7,6 +7,10 @@ setwd(path)
 filenames = list.files(pattern = '*.csv$',full.names = TRUE)
 
 
+output_path = "C:/Users/jsommerfeld/Desktop/RQA/" # Add in file path where the figures will save here
+name = "Full Game RQA Plots"
+
+
 row_name = NULL # Used to create the strings for use in naming the columns
 x = NULL # Variable for RQA to be stored as
 
@@ -24,7 +28,10 @@ vmax = NULL
 entropy = NULL
 rentropy = NULL
 
-
+# Save a pdf
+k = paste(output_path, name, sep = "") # Combines the output file path and file name into a string
+pdf(paste(k, ".pdf", sep = "")) # Creates a PDF using the above string
+  
 for (i in 1:length(filenames)){
   # Read in the .csv files
   area = read.csv(filenames[i], header = TRUE)
@@ -55,10 +62,19 @@ for (i in 1:length(filenames)){
   vmax[i] = x$rqa$vmax
   entropy[i] = x$rqa$entropy
   rentropy[i] = x$rqa$rentropy
+  
+  # Create the RQA plots with the game and team as a subtitle 
+  rqapp::recurrence_plot(x$rp)
+  par(adj = 1)
+  title(sub = row_name[i])
+  
+  
 }
+dev.off() 
+results = data.frame('filename' = row_name, 'rr' = rr, 'DET' = Det, 'div' = div, 'nrline' = nrline, 'ratio' = ratio,
+                     'maxline' = maxline, 'meanline' = meanline, 'lam' = lam, 'tt' = tt, 'vmax' = vmax, 
+                     'Entropy' = entropy, 'rentropy' = rentropy)
 
-results = data.frame('filename' = row_name, 'DET' = DET, 'Entropy' = entropy)
-
-write.csv(results, "C:/Users/jsommerfeld/Desktop/Speed and Distance/RQA_analysis.csv")
+write.csv(results, "C:/Users/jsommerfeld/Desktop/RQA/RQA_analysis.csv")
 
 
